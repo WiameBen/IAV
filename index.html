@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Institut Agronomique et Vétérinaire Hassan II</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="fontawesome/css/all.min.css" type="text/css" /> 
+    <link rel="stylesheet" href="css/slick.css" type="text/css" />   
+    <link rel="stylesheet" href="css/tooplate-simply-amazed.css" type="text/css" />
+    <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="leaflet.css" />
+    <script src="leaflet.js" ></script>
+    <link href="Leaflet.AnimatedSearchBox.css" rel="stylesheet">
+    <script src="Leaflet.AnimatedSearchBox.js"></script>
+    <link rel="stylesheet" type="text/css" href="L.Control.ZoomBar.css"/>
+    <script type="text/javascript" src="L.Control.ZoomBar.js"></script>
+    <link rel="stylesheet" href="L.Control.ResetView.min.css">
+    <script src="L.Control.ResetView.min.js"></script>
+    <link rel="stylesheet" href="Control.MiniMap.min.css">
+    <script src="Control.MiniMap.min.js"></script>
+    <link rel="stylesheet" href="leaflet-measure-path.css">
+    <script src="leaflet-measure-path.js"></script>    
+    <script src="leaflet-sidebar.js"></script>
+    <link rel="stylesheet" href="leaflet-sidebar.css" />
+    <script src="Régions du Maroc.geojson"></script>
+    <script src='Leaflet.fullscreen.min.js'></script>
+    <link rel='stylesheet' href='leaflet.fullscreen.css' />
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        .leaflet-container {
+            height: 400px;
+            width: 600px;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+<!--
+
+Tooplate 2123 Simply Amazed
+
+https://www.tooplate.com/view/2123-simply-amazed
+
+-->
+</head>
+
+<body>
+    <div id="outer">
+        <header class="header order-last" id="tm-header">
+            <nav class="navbar">
+                <div class="collapse navbar-collapse single-page-nav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section-1"><span class="icn"><i class="fas fa-2x fa-graduation-cap"></i></span> Présentation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section-2"><span class="icn"><i class="fab fa-2x fa-battle-net"></i></span> Géoportail</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section-3"><span class="icn"><i class="fas fa-2x fa-check"></i></span> Filières</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section-4"><span class="icn"><i class="far fa-2x fa-comments"></i></span> Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        
+        <button class="navbar-button collapsed" type="button">
+            <span class="menu_icon">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </span>
+        </button>
+        
+        <main id="content-box" class="order-first">
+            <div class="banner-section section parallax-window" data-parallax="scroll" data-image-src="img/5769e351a40580c79543afa1c933b0bd.jpeg" id="section-1">
+                <div class="container">
+                    <div class="item">
+                        <div class="bg-blue-transparent logo-fa"><span><i class="fas fa-2x  fa-school"></i></span> IAV Hassan II</div>
+                        <div class="bg-blue-transparent simple"><p>L’Institut agronomique et vétérinaire Hassan-II, abrégé en IAV Hassan-II voire IAV, est une école d'ingénieurs et de médecins vétérinaires marocaine située à Rabat et créée en 1966.</p></div>
+                    </div>
+                </div>
+            </div>
+        
+            <section class="work-section section" id="section-2">
+                <div class="container">
+                    <div class="row">
+                        <div id="map" style="width: 2000px; height: 1000px;"></div>
+                           <script>
+
+                            const map = L.map('map').setView([33.976540403810326, -6.866599339485469], 15);
+
+                            googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
+                                minZoom: 1,
+                                maxZoom: 18,
+                                zoomControl: false ,
+                                subdomains:['mt0','mt1','mt2','mt3']
+                            });
+                            googleStreets.addTo(map);
+
+                            const marker = L.marker([33.976406, -6.867625]).addTo(map)
+                                .bindPopup('<b>Institut agronomique et vétérinaire Hassan II</b>').openPopup();
+
+    const polygonA = L.polygon([
+        [33.9814671, -6.8641799],
+        [33.9816876, -6.8639918],
+        [33.9809400, -6.8628810],
+        [33.9809094, -6.8628083],
+        [33.9808777, -6.8627251],
+        [33.9808569, -6.8626510],
+        [33.9808469, -6.8625491],
+        [33.9808127, -6.8623268],
+        [33.9806978, -6.8607266],
+        [33.9806648, -6.8607356],
+        [33.9792499, -6.8618940],
+        [33.9797328, -6.8626302],
+        [33.9789471, -6.8633551],
+        [33.9765564, -6.8658010],
+        [33.9761671, -6.8658952],
+        [33.9747160, -6.8638553],
+        [33.9716131, -6.8667763],
+        [33.9722459, -6.8676785],
+        [33.9714315, -6.8684242],
+        [33.9724364, -6.8700020],
+        [33.9725829, -6.8699074],
+        [33.9727734, -6.8698501],
+        [33.9736119, -6.8698484],
+        [33.9736595, -6.8698172],
+        [33.9736981, -6.8697653],
+        [33.9737151, -6.8697478],
+        [33.9740476, -6.8697502],
+        [33.9741141, -6.8697757],
+        [33.9746532, -6.8706604],
+        [33.9814299, -6.8642007]
+    ]).addTo(map)
+polygonA.setStyle({ color: 'green' });
+
+    const polygon = L.polygon([
+    [33.9763033, -6.8673365],
+    [33.9761691, -6.8671008],
+    [33.9763261, -6.8669701],
+    [33.9763553, -6.8668956],
+    [33.9762972, -6.8667753],
+    [33.976403, -6.866674],
+    [33.9764426, -6.8667012],
+    [33.9765466, -6.8666237],
+    [33.9765972, -6.8666925],
+    [33.9766809, -6.8666308],
+    [33.9767944, -6.8668192],
+    [33.9767201, -6.8668950],
+    [33.9767716, -6.8669784],
+    [33.9766962, -6.8670572],
+    [33.9767207, -6.8671028],
+    [33.9766559, -6.8671645],
+    [33.9765580, -6.8670291],
+    [33.9764657, -6.8671400],
+    [33.9764741, -6.8671635]
+]).addTo(map).bindPopup('Departement Topo')
+.showMeasurements();
+// Change la couleur du polygone en rouge
+
+
+    const polygon1 = L.polygon([
+        [33.9769364, -6.8661275],
+        [33.9770126, -6.8658697],
+        [33.9767966, -6.8657664],
+        [33.9767168, -6.8660279]
+    ]).addTo(map).bindPopup('Capacity building center');
+    const polygon2 = L.polygon([
+        [33.9760248, -6.8667783],
+        [33.9759160, -6.8666060],
+        [33.9760014, -6.8665402],
+        [33.9761021, -6.8667042]
+    ]).addTo(map).bindPopup('Département Parasitologie');
+    const polygon3 = L.polygon([
+        [33.9752457, -6.8674069],
+        [33.9751234, -6.8672353],
+        [33.9752707, -6.8671099],
+        [33.9753819, -6.8672876]
+    ]).addTo(map).bindPopup('Département de reproduction et d insémination artificielle');
+    const polygon4 = L.polygon([
+        [33.9793650, -6.8640300],
+        [33.9792285, -6.8638359],
+        [33.9790781, -6.8639834],
+        [33.9792082, -6.8641822],
+    ]).addTo(map).bindPopup('Département de Production Animale');
+    const polygon5 = L.polygon([
+        [33.974737, -6.866147],
+        [33.974582, -6.865908],
+        [33.974377, -6.866097],
+        [33.974537, -6.866338]
+    ]).addTo(map).bindPopup('Département Industrie Agro-alimentaire');
+    const circle = L.circle([33.974791, -6.866942], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 15
+    }).addTo(map).bindPopup('Amphi Agro.');
+
+    map.addControl(new L.Control.Fullscreen());
+
+
+    map.isFullscreen() // Is the map fullscreen?
+    map.toggleFullscreen() // Either go fullscreen, or cancel the existing fullscreen.
+
+    map.on('fullscreenchange', function () {
+        if (map.isFullscreen()) {
+            console.log('entered fullscreen');
+        } else {
+            console.log('exited fullscreen');
+        }
+    });
+
+    var searchbox = L.control.searchbox({
+    position: 'topright',
+    expand: 'left',
+    iconPath: 'images/search_icon.png'
+    }).addTo(map);
+
+    const popup = L.popup()
+        .setLatLng([33.976406, -6.867625])
+        .setContent('Institut Agronomique et Vétérinaire Hassan II.')
+        .openOn(map);
+
+    var zoom_bar = new  L.Control.ZoomBar({position: 'topright'}).addTo(map);
+
+    var osm2 = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
+        minZoom: 0,
+        maxZoom: 13,
+        zoomControl: false ,
+        subdomains:['mt0','mt1','mt2','mt3']
+    });
+    var miniMap = new L.Control.MiniMap(osm2).addTo(map);
+
+    var polygon7 = L.polygon([     
+        [33.974737, -6.866147],
+        [33.974582, -6.865908],
+        [33.974377, -6.866097],
+        [33.974537, -6.866338] 
+      ]).addTo(map)
+    .showMeasurements();
+
+                            function onMapClick(e) {
+                                popup
+                                    .setLatLng(e.latlng)
+                                    .setContent(`You clicked the map at ${e.latlng.toString()}`)
+                                    .openOn(map);
+                            }
+
+                            map.on('click', onMapClick);
+                        </script>
+                    </div>
+                </div>
+                    
+            </section>
+
+            <section class="gallery-section section parallax-window" data-parallax="scroll" data-image-src="img/be1eb66075521bf1d6af5d228361f082.jpg" id="section-3">
+                <div class="container">
+                    <div class="title text-right">
+                        <h2>Filières</h2>
+                    </div>
+                    <div class="mx-auto gallery-slider">
+                        <figure class="effect-julia item">
+                            <img src="img/topographie.jpg" alt="Image">
+                            <figcaption>
+                                <div>
+                                    <p>Sciences Géomatiques et Ingénieurie Topographique</p>
+                                </div>
+                                <a href="https://iav.ac.ma/fr/sciences-geomatiques-et-ingenierie-topographique">View more</a>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-julia item">
+                            <img src="img/Hoover_dam11.jpg" alt="Image">
+                            <figcaption>
+                                <div>
+                                    <p>Génie Rural</p>
+                                </div>
+                                <a href="https://iav.ac.ma/fr/genie-rural">View more</a>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-julia item">
+                            <img src="img/LK05DDK71_web.jpg" alt="Image" >
+                            <figcaption>
+                                <div>
+                                    <p>Horticulture</p>
+                                </div>
+                                <a href="https://iav.ac.ma/fr/horticulture">View more</a>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-julia item">
+                            <img src="img/6fed638ad1ccd9433434bfdd05cd669d (1).jpg" alt="Image">
+                            <figcaption>
+                                <div>
+                                    <p>Halieutique</p>
+                                </div>
+                                <a href="https://iav.ac.ma/fr/ingenierie-halieutique">View more</a>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-julia item">
+                            <img src="img/54d5149c767a0187b6d58b4dc107b415.jpg" alt="Image">
+                            <figcaption>
+                                <div>
+                                    <p>Agronomie</p>
+                                </div>
+                                <a href="https://iav.ac.ma/fr/agronomie">View more</a>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-julia item">
+                            <img src="img/0028f47df0895761a4dcc6563619a1c1.jpg" alt="Image">
+                            <figcaption>
+                                <div>
+                                    <p>Médecine Vétérinaire</p>
+                                </div>
+                                <a href="https://iav.ac.ma/fr/medecine-veterinaire">View more</a>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-julia item">
+                            <img src="img/9a2c5237d9edca2692c26208e51896a2 (1).jpg" alt="Image">
+                            <figcaption>
+                                <div>
+                                    <p>Industrie Agroalimentaire</p>
+                                </div>
+                                <a href="https://iav.ac.ma/fr/industries-agricoles-et-alimentaires">View more</a>
+                            </figcaption>
+                        </figure>
+                        
+                        
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact-section section" id="section-4">
+                <div class="container">
+                    <div class="title">
+                        <h3>Contact Us</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-5 col-md-6 mb-4 contact-form">
+                            <div class="form tm-contact-item-inner">
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-4 contact-details">
+                            <div class="tm-contact-item-inner-2">
+                                <p>CAMPUS RABAT
+Madinat Al Irfane, BP 6202
+Rabat, MAROC.
+</p>
+                                <ul class="font-weight-light">
+                                    <li>
+                                        <span class="icn"><i class="fas fa-mobile-alt"></i></span>
+                                        <span class="lbl">Tel:</span> <a href="#">+212 5 377 717 45/58/59</a>
+                                    </li>
+
+                                    <li>
+                                        <span class="icn"><i class="fas fa-globe-asia"></i></span>
+                                        <span class="lbl">URL:</span> <a href="#">www.iav.ac.ma</a>
+                                    </li>
+                                </ul>
+                            </div>                        
+                        </div>
+                        <div class="col-lg-3 col-md-12 map">
+                            <!-- Map -->
+                            <div class="map-outer tm-mb-40">
+
+                            </div>
+                        </div>
+                    </div>                
+                </div>
+                <footer class="footer container container-2">
+
+                </footer>
+            </section>
+        </main>
+    </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.singlePageNav.min.js"></script>
+    <script src="js/slick.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/templatemo-script.js"></script>
+</body>
+</html>
