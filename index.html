@@ -26,7 +26,7 @@
     <script src="leaflet-measure-path.js"></script>    
     <script src="leaflet-sidebar.js"></script>
     <link rel="stylesheet" href="leaflet-sidebar.css" />
-    <script src="Régions du Maroc.geojson"></script>
+    <script src="roads.geojson"></script>
     <script src='Leaflet.fullscreen.min.js'></script>
     <link rel='stylesheet' href='leaflet.fullscreen.css' />
     <style>
@@ -211,7 +211,9 @@ polygonA.setStyle({ color: 'green' });
 		fillOpacity: 0.5,
 		radius: 15
 	}).addTo(map).bindPopup('Amphi APESA.');
-                               
+				   
+        var IAV = L.geoJSON(IAV).addTo(map);
+        IAV.setStyle({ color: 'black' });                         
 
     map.addControl(new L.Control.Fullscreen());
 
