@@ -205,6 +205,13 @@ polygonA.setStyle({ color: 'green' });
         fillOpacity: 0.5,
         radius: 15
     }).addTo(map).bindPopup('Amphi Agro.');
+    const circleA = L.circle([33.9725153, -6.8689328], {
+		color: 'red',
+		fillColor: '#f03',
+		fillOpacity: 0.5,
+		radius: 15
+	}).addTo(map).bindPopup('Amphi APESA.');
+                               
 
     map.addControl(new L.Control.Fullscreen());
 
