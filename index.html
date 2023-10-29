@@ -198,7 +198,8 @@ polygonA.setStyle({ color: 'green' });
         [33.974582, -6.865908],
         [33.974377, -6.866097],
         [33.974537, -6.866338]
-    ]).addTo(map).bindPopup('Département Industrie Agro-alimentaire');
+    ]).addTo(map).bindPopup('Département Industrie Agro-alimentaire')
+	.showMeasurements();			   
     const circle = L.circle([33.974791, -6.866942], {
         color: 'red',
         fillColor: '#f03',
@@ -250,13 +251,8 @@ polygonA.setStyle({ color: 'green' });
     });
     var miniMap = new L.Control.MiniMap(osm2).addTo(map);
 
-    var polygon7 = L.polygon([     
-        [33.974737, -6.866147],
-        [33.974582, -6.865908],
-        [33.974377, -6.866097],
-        [33.974537, -6.866338] 
-      ]).addTo(map)
-    .showMeasurements();
+
+   
 
                             function onMapClick(e) {
                                 popup
